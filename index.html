@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
+
+
+<!-- http://stackoverflow.com/questions/17118551/generating-a-list-of-pages-not-posts-in-a-given-category -->
+<div class="pages">
+  {% for cat in site.categoryList %}
+    <h3>{{ cat }}</h3>
+    <ul>
+      {% for page in site.pages %}
+        {% if page.resource == true %}
+          {% for pc in page.categories %}
+            {% if pc == cat %}
+              <li><a href="{{ site.url}}{{ page.url }}">{{ page.title }}</a></li>
+            {% endif %}   <!-- cat-match-p -->
+          {% endfor %}  <!-- page-category -->
+        {% endif %}   <!-- resource-p -->
+      {% endfor %}  <!-- page -->
+    </ul>
+  {% endfor %}  <!-- cat -->
+</div>
+
+

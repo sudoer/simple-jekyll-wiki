@@ -1,0 +1,23 @@
+
+/* colors */
+
+.title {
+  font-size:16pt;
+  margin-top: 20px;
+  padding: 4px 10px 6px 12px;
+  /* color: blue; */
+  color:#000000;
+  background-color:#CCEEFF;
+}
+
+h1 { font-size:14pt; color:#C00000; }
+h2 { font-size:13pt; color:#008000; }
+h3 { font-size:12pt; color:#0000C0; }
+h4 { font-size:11pt; color:#C0C000; }
+
+/* borders (underlines) */
+
+h1 { border-bottom:none; }
+h2 { border-bottom:none; }
+
+

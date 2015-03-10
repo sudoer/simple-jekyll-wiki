@@ -1,0 +1,14 @@
+#!/bin/bash
+# copy this to {project.git}/hooks/post-update
+GIT=/path/to/wiki.git    # bare git repo, used as origin
+SRC=/path/to/build       # temp directory to build in
+DST=/path/to/www         # jekyll output, shared via web server
+unset GIT_DIR
+rm -rf $SRC 2> /dev/null
+git clone --depth=1 $GIT $SRC
+cd $SRC
+$SRC/preprocess.sh
+rm -rf $DST 2> /dev/null
+mkdir -p $DST 2> /dev/null
+jekyll build -s $SRC -d $DST
+
